@@ -3,14 +3,26 @@ import random
 
 texto = "O Fulano de Tal é uma pessoa (legal, gente boa, simpatica) e (etc, etc). Ele também é muito (trabalhador, criativo, educado) faz parte de uma família (muito boa, excelente, renomada)"
 adjetivos = []
-adjetivos1 = ''
+adjpermutados = ''
+
 linha = []
+
 k = 0
 textoConvertido = ""
 
 textoConverte = []
 
-
+def permuta(adjetivos, adjpermutados, z):
+	global k
+	if len(adjetivos) == z:
+		print k, ' ', adjpermutados
+		k += 1
+		
+	else:
+		for i in range(len(texto[z])):
+			permuta(adjetivos, adjpermutados+' '+adjetivos[z][i], z+1)
+        
+        
 def converteTexto():
     global adjetivos
     global textoConverte
@@ -56,7 +68,6 @@ def identificaParenteses():
                 estado = "dentro"
                 adjetivo = ""
                 
-
         elif estado == "dentro":
             if t == ")":
                 estado = "fora"
@@ -68,24 +79,8 @@ def identificaParenteses():
                 linha.append(adjetivo)                
                 adjetivo = ""
                 
-
             else:
                 adjetivo += t
-        permuta(adjetivos, adjetivos1, 0)
+        permuta(adjetivos, adjpermutados, 0)
 
-def permuta(adjetivos, adjetivos1, z):
-    global k
-    if len(adjetivos) == z:
-        print k, adjetivos1
-        k += 1
-        
-    else:
-        for i in range(len(adjetivos)):
-            permuta(adjetivos, adjetivos1+adjetivos[i], z+1)
-
-
-permuta(adjetivos, adjetivos1, 0)
-
-
-# identificaParenteses()
-# print(textoConvertido)
+identificaParenteses()
