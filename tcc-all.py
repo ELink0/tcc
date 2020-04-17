@@ -58,3 +58,5 @@ def identificaParenteses(texto):
 
 identificaParenteses(texto)
 permuta(adjetivos, adjpermutados, 0)
+
+# Texto 2 vai ter que receber pelo retorno da função
