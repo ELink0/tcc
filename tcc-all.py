@@ -1,7 +1,8 @@
 #-*- coding: UTF-8 -*-
 import random
 
-texto = "O Fulano de Tal é uma pessoa (legal, gente boa, simpatica) e (etc, etc). Ele também é muito (trabalhador, criativo, educado) faz parte de uma família (muito boa, excelente, renomada)"
+texto_1 = "O Fulano de Tal é uma pessoa (legal, gente boa, simpatico) é de uma família (boa, de pessoas educadas). Ele também é muito (trabalhador, criativo, educado).!"
+texto_2 = "O Fulano de Tal é uma pessoa (chata, estranha, antipático) é de uma família (de pessoas mal educadas, estranha). Ele também é muito (preguiçoso, oferecido, ruim).!"
 adjetivos = []
 adjpermutados = []
 textoConvertido = ""
@@ -21,8 +22,6 @@ def permuta(adjetivos, adjpermutados, z):
 			permuta(adjetivos, nova_lista, z+1)
 
 def identificaParenteses(texto):
-	global textoConvertido
-
 	adjetivo = ""
 	estado = "fora"
 	contador = 0
@@ -53,10 +52,8 @@ def identificaParenteses(texto):
 				else:
 					adjetivo += t
 
-	return texto, textoConvertido
+	return adjetivos, textoConvertido
 
 
-identificaParenteses(texto)
-permuta(adjetivos, adjpermutados, 0)
-
-# Texto 2 vai ter que receber pelo retorno da função
+identificaParenteses(texto_1)
+print(textoConvertido)
