@@ -76,5 +76,9 @@ def identificaParenteses(texto):
 adjetivos_1, textoConvertido_1 = identificaParenteses(texto_1)
 adjetivos_2, textoConvertido_2 = identificaParenteses(texto_2)
 
-gerarHash(adjetivos_1)
+hash1 = gerarHash(adjetivos_1)
+hash2 = gerarHash(adjetivos_2)
+
+if hash1 == hash2:
+	print("Sucesso!")
 # permuta(adjetivos_2, [], 0)
