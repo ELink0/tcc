@@ -21,8 +21,14 @@ def gerarHash(texto):
 					valorHash += ord(caracteres)
 					modulo =  valorHash % maximo
 					valorHash = modulo
-
 					print(valorHash)
+					
+			if valorHash >= maximo:
+				valorHash == 99
+
+			if valorHash <= minimo:
+				valorHash == 0
+			return valorHash
 
 
 def permuta(adjetivos, adjpermutados, z):
