@@ -19,9 +19,8 @@ def gerarHash(texto):
 					valorHash == 0
 				else:
 					valorHash += ord(caracteres)
-					modulo =  valorHash % maximo
+					modulo = valorHash % maximo
 					valorHash = modulo
-					print(valorHash)
 					
 			if valorHash >= maximo:
 				valorHash == 99
@@ -84,6 +83,7 @@ adjetivos_2, textoConvertido_2 = identificaParenteses(texto_2)
 
 hash1 = gerarHash(adjetivos_1)
 hash2 = gerarHash(adjetivos_2)
+
 
 if hash1 == hash2:
 	print("Sucesso!")
