@@ -8,18 +8,33 @@ texto_2 = "O Fulano de Tal e uma pessoa (chata, estranha, antipatico) e de uma f
 
 def gerarHash(texto):
 	minimo = 0
-	maximo = 100
+	maximo = 200
 	valorHash = 0
 	modulo = 0
+	caracteres_contador = 0
 
 	for listas in texto:
 		for elementos in listas:
 			for caracteres in elementos:
+				# Aqui estou somando os valores ASCII de todos os caracteres percorridos
+				caracteres_contador += ord(caracteres)
 				if caracteres == " ":
 					valorHash == 0
 				else:
 					valorHash += ord(caracteres)
+					# Aqui estou passando para o modulo o resto da divisão entre o valorHash com o limite máximo
 					modulo = valorHash % maximo
+
+					# Aqui passo o valor do modulo para o valorHash
+					valorHash = modulo
+
+					# Aqui estou passando para o modulo o resto da divisão entre o valorHash com o caracteres_contador
+					caracteresHash = valorHash % caracteres_contador
+
+					# Aqui, gera um hash que vai ser a soma do resultado da divisão do valorHash e caracteresHash
+					modulo = caracteresHash + valorHash
+					
+					# Aqui passo o valor do molulo para valorHash
 					valorHash = modulo
 					
 			if valorHash >= maximo:
