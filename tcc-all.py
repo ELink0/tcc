@@ -7,13 +7,8 @@ texto_2 = "O Fulano de Tal e uma pessoa (chata, estranha, antipatico) e de uma f
 # Converter cada caracter para o código ASCII
 
 def gerarHash(texto):
-	valor = 0
-	maximo = 1000
-	for i in texto:
-		valor += ord(i)
-		valor = valor % maximo
-		if valor >= maximo:
-			valor = 1000
+	valor = ''.join(str(ord(i)) for i in texto)
+	print(valor)
 
 
 def permuta(adjetivos, adjpermutados, z):
@@ -68,7 +63,6 @@ adjetivos_1, textoConvertido_1 = identificaParenteses(texto_1)
 adjetivos_2, textoConvertido_2 = identificaParenteses(texto_2)
 
 hash1 = gerarHash(texto_1)
-hash2 = gerarHash(adjetivos_2)
 
 
 # permuta(adjetivos_2, [], 0)
