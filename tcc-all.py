@@ -7,14 +7,25 @@ texto_2 = "O Fulano de Tal e uma pessoa (chata, estranha, antipatico) e de uma f
 # Converter cada caracter para o código ASCII
 
 def gerarHash(texto):
-	# valor = ''.join(str(ord(i)) for i in texto)
-	# print(valor)
 	valor = 0
+ 	max = 128
 	for i in texto:
-		str(i)
 		valor += ord(i)
-		print(valor)
 
+ 	hash = valor % max
+ 	return hash
+
+def substituiTag(textoConvertido):
+	textoConvertido = "O Fulano de Tal e uma pessoa <t1> e de uma familia <t2>. Ele tambem e muito <t3>.!"
+	contador = 0
+	textoSubstituido = ""
+
+	for i in textoConvertido:
+		if i == "<t"+contador+">":
+			i.replace(adjetivos_1)
+			contador += 1
+		else:
+			textoSubstituido += i
 
 def permuta(adjetivos, adjpermutados, z):
 	k = 0
@@ -56,7 +67,7 @@ def identificaParenteses(texto):
 					adjetivos.append(linha)
 
 				elif t == ",":
-					linha.append(adjetivo)					 
+					linha.append(adjetivo)
 					adjetivo = ""
 
 				else:
