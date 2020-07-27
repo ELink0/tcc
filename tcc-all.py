@@ -22,7 +22,7 @@ def substituiTag(textoConvertido):
 
 	for i in textoConvertido:
 		if i == "<t"+contador+">":
-			i.replace(adjetivos_1)
+			i.replace("<t"+contador+">", adjetivos_1)
 			contador += 1
 		else:
 			textoSubstituido += i
