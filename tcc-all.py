@@ -1,7 +1,6 @@
 #-*- coding: UTF-8 -*-
 from random import randint
 
-
 texto_1 = "O Fulano de Tal e uma pessoa (legal, gente boa, simpatico) e de uma familia (boa, de pessoas educadas). Ele tambem e muito (trabalhador, criativo, educado).!"
 texto_2 = "O Fulano de Tal e uma pessoa (chata, estranha, antipatico) e de uma familia (de pessoas mal educadas, estranha). Ele tambem e muito (preguicoso, oferecido, ruim).!"
 
@@ -34,7 +33,6 @@ def substituiTag(texto, adjetivos):
 		elif estado == "dentro":
 			if i == ">":
 				estado = "fora"
-				x += 1
 				z += 1
 	return textoNovo
 
@@ -89,12 +87,13 @@ def identificaParenteses(texto):
 adjetivos_1, textoConvertido_1 = identificaParenteses(texto_1)
 adjetivos_2, textoConvertido_2 = identificaParenteses(texto_2)
 
-print(textoConvertido_2)
+# print(textoConvertido_2)
 
 # Chama função de gerar Hash
 # hash1 = gerarHash(texto_1)
 
 # Chama a função de substituir Tags
-textoNovo = substituiTag(texto, adjetivos)
+textoNovo = substituiTag(textoConvertido_1, adjetivos_1)
+print(textoNovo)
 
 # permuta(adjetivos_2, [], 0)
