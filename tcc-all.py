@@ -15,24 +15,26 @@ def gerarHash(texto):
  	hash = valor % max
  	return hash
 
-def substituiTag(textoConvertido, adjetivos):
-	textoConvertido = "O Fulano de Tal e uma pessoa <t1> e de uma familia <t2>. Ele tambem e muito <t3>.!"
-	contador = 0
-	textoSubstituido = ""
+def substituiTag(texto, adjetivos):
+	textoNovo = ""
+	x = 0
+	z = 0
+	estado = "fora"
 
-	for i in textoConvertido:
-		estado = "fora"
-		controle = 0
-
+	for i in texto:
 		if estado == "fora":
 			if i != "<":
-				i.replace(i, adjetivos[controle])
-				controle += 1
-				estado == "dentro"
+				textoNovo += i
+			else:
+				textoNovo += str(adjetivos[z][x])
+				estado = "dentro"
 
-			if estado == "dentro":
-				i.replace("", "")
-					print(i)
+		elif estado == "dentro":
+			if i == ">":
+				estado = "fora"
+				x += 1
+				z += 1
+	return textoNovo
 
 def permuta(adjetivos, adjpermutados, z):
 	k = 0
@@ -85,7 +87,12 @@ def identificaParenteses(texto):
 adjetivos_1, textoConvertido_1 = identificaParenteses(texto_1)
 adjetivos_2, textoConvertido_2 = identificaParenteses(texto_2)
 
+print(textoConvertido_2)
+
+# Chama função de gerar Hash
 # hash1 = gerarHash(texto_1)
-substituiTag(textoConvertido_1)
+
+# Chama a função de substituir Tags
+textoNovo = substituiTag(texto, adjetivos)
 
 # permuta(adjetivos_2, [], 0)
