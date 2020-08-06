@@ -17,8 +17,8 @@ def gerarHash(texto):
 
 def substituiTag(texto, adjetivos):
 	textoNovo = ""
-	x = 0
 	z = 0
+	sorteio = randint(0, len(adjetivos[z]))
 	estado = "fora"
 
 	for i in texto:
@@ -26,7 +26,7 @@ def substituiTag(texto, adjetivos):
 			if i != "<":
 				textoNovo += i
 			else:
-				textoNovo += str(adjetivos[z][x])
+				textoNovo += str(adjetivos[z][sorteio])
 				estado = "dentro"
 
 		elif estado == "dentro":
