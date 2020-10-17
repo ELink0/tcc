@@ -1,15 +1,13 @@
 #-*- coding: UTF-8 -*-
 from random import randint
+from random import random
 
 texto_1 = "O Fulano de Tal e uma pessoa (legal, gente boa, simpatico) e de uma familia (boa, de pessoas educadas). Ele tambem e muito (trabalhador, criativo, educado).!"
 texto_2 = "O Fulano de Tal e uma pessoa (chata, estranha, antipatico) e de uma familia (de pessoas mal educadas, estranha). Ele tambem e muito (preguicoso, oferecido, ruim).!"
 
-# Somar os caracteres e somar o módulo da divisão
-# Converter cada caracter para o código ASCII
-
 def gerarHash(texto):
 	valor = 0
- 	max = 128
+	max = 128
 	for i in texto:
 		valor += ord(i)
 
@@ -49,6 +47,23 @@ def permuta(adjetivos, adjpermutados, z):
 			nova_lista.append(adjetivos[z][i])
 			permuta(adjetivos, nova_lista, z+1)
 
+
+def sortearAdjetivos(adjetivos, x):
+	z = 0
+	x = 0
+	novaLista = []
+
+	if len(novaLista) == len(adjetivos):
+		print(novaLista)
+
+	else:
+		for i in range(len(adjetivos[x])):
+			z = randint(0, len(adjetivos[z])-1)
+			novaLista.append(adjetivos[x][z])
+			x += 1
+		return novaLista
+
+
 def identificaParenteses(texto):
 	textoConvertido = ""
 	adjetivos = []
@@ -87,13 +102,17 @@ def identificaParenteses(texto):
 adjetivos_1, textoConvertido_1 = identificaParenteses(texto_1)
 adjetivos_2, textoConvertido_2 = identificaParenteses(texto_2)
 
+# print("Adjetivos 1: {}\nAdjetivos 2: {}".format(adjetivos_1, adjetivos_2))
+
 # print(textoConvertido_2)
 
 # Chama função de gerar Hash
 # hash1 = gerarHash(texto_1)
 
 # Chama a função de substituir Tags
-textoNovo = substituiTag(textoConvertido_1, adjetivos_1)
-print(textoNovo)
+# textoNovo = substituiTag(textoConvertido_1, adjetivos_1)
+# print(textoNovo)
 
 # permuta(adjetivos_2, [], 0)
+permutaAleatoria(adjetivos_1)
+adjetivosSorteados = sortearAdjetivos(adjetivos, 0)
