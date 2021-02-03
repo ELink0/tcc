@@ -108,7 +108,7 @@ while controle_loop == 0:
 			hash2 = gerarHash(textoNovo2)
 
 			if hash1 == hash2:
-				print("Bingo!", hash1, hash2)
+				print("Bingo! \nHash1: {} \nHash2: {} \n Texto 1: {} \n Texto 2: {}".format(hash1, hash2, textoNovo1, textoNovo2))
 				break
 
 
